@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 삭제</title>
+</head>
+<body>
+    <p>text</p>
+    <a href="https://www.naver.com" id="naver" target="_blank">네이버</a>
+    <script>
+        const pe = document.querySelector('p'); // p 노드 선택
+        // 노드를 지울 때는 해당 노드의 부모 노드를 찾아서 removeChild() 메소드를 사용
+        pe.parentNode.removeChild(pe); // p 노드 삭제
+
+    </script>
+</body>
+</html>

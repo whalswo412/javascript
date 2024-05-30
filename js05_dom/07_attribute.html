@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메소드 속성(attribute) 조작하기</title>
+    <style>
+        .red-color {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://www.naver.com" id="naver" target="_blank">네이버</a>
+
+    <script>
+        const naver = document.querySelector('a');
+
+        const href = naver.getAttribute('href');
+        console.log('href : ', href); // https://www.naver.com
+
+        // 속성 값 변경
+        naver.setAttribute('href', 'https://www.daum.net');
+        console.log('href : ', naver.getAttribute('href')); // https://www.daum.net
+
+        // class 속성 추가, setAttribute() 메소드는 파라미터를 2개 받음
+        // 첫번째는 속성 이름, 두번째는 속성의 값
+        naver.setAttribute('class', 'red-color'); // naver 노드에 class 속성인 red-color 추가
+
+        // 속성 제거
+        naver.removeAttribute('target'); // naver 노드에 target 속성 제거
+        
+        // 속성 제거
+        naver.removeAttribute('class'); // naver 노드에 class 속성 제거
+
+    </script>
+</body>
+</html>

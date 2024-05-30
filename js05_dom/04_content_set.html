@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>컨텐트 세팅</title>
+</head>
+<body>
+    <p id="textContent">이것은 텍스트입니다.</p>
+    <p id="innerHtml">이것은 <span>HTML</span>입니다.</p>
+    <script>
+        // textContent : 요소 노드의 텍스트 내용을 설정, Html을 단순 텍스트로 인식
+        document.querySelector('#textContent').textContent 
+                        = '이것은 <strong>텍스트</strong>입니다.';
+        // 노드의 색상 변경
+        document.querySelector('#textContent').style.color = 'red'; // 텍스트 색상 변경
+
+        // innerHTML : 요소 노드의 HTML 마크업을 설정, Html 태그로 인식
+        document.querySelector('#innerHtml').innerHTML
+                        = '이것은 <strong>HTML</strong>입니다.';
+
+        // 노드의 색상 변경
+        document.querySelector('#innerHtml').style.color = 'blue'; // 텍스트 색상 변경
+        document.querySelector('#innerHtml').style.backgroundColor = 'yellow'; // 배경색 변경
+    </script>
+</body>
+</html>

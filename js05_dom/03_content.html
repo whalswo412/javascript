@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>컨텐츠 조작하기</title>
+</head>
+<body>
+    <p id="title">Hello, <span style="display: none;">Javascript</span></p>
+    <script>
+        // textContent : 요소 노드의 텍스트 내용을 반환
+        console.log(document.getElementById('title').textContent); // Hello, Javascript
+
+        // innerText : 요소 노드의 텍스트 내용을 반환
+        // 단, style 속성의 display 속성 값이 none인 요소 노드는 제외
+        // 즉, 웹브라우저에 표시되는 텍스트만 반환
+        console.log(document.getElementById('title').innerText); // Hello
+
+        // innerHTML : 요소 노드의 HTML 마크업을 반환, Html 태그 자체를 반환
+        console.log(document.getElementById('title').innerHTML); // Hello, <span style="display: none">Javascript</span>
+    </script>
+</body>
+</html>

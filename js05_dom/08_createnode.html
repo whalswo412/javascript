@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 추가하기</title>
+
+</head>
+<body>
+    <script>
+        // 노드 생성
+        const newDiv = document.createElement('div'); // div 노드 생성
+
+        // 생성한 노드를 body에 추가
+        document.body.appendChild(newDiv); // body에 div 노드 추가
+
+        // <a> 노드 생성
+        const newA = document.createElement('a'); // a 노드 생성
+        
+        // <a> 노드를 div 노드에 추가
+        newDiv.appendChild(newA); // div 노드에 a 노드 추가
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data- 속성으로 값 설정 및 조회하기</title>
+</head>
+<body>
+    <!-- data-cnt : button 요소 노드에 cnt라는 변수 이름으로 10이라는 값을 저장해놓음 -->
+    <button data-cnt="10">가방 10개 구매</button>
+    <button data-cnt="5">신발 5개 구매</button>
+
+    <script>
+        const btns = document.querySelectorAll('button');
+        // dataset 값 출력
+        console.log('btns[0].dataset : ', btns[0].dataset); // (cnt: "10")
+        
+        // 첫번째 요소의 값을 출력
+        console.log(btns[0].dataset.cnt); // 10
+        console.log(btns[1].dataset.cnt); // 5
+
+        // 반복문을 이용하여 모든 요소의 값을 출력
+        btns.forEach(btn => {
+            console.log(btn.dataset); // data-로 시작하는 속성들을 객체로 반환
+        });
+    </script>
+</body>
+</html>

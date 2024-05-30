@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelector를 통한 노드 선택하기</title>
+</head>
+
+<body>
+    <h3>querySelector는 css 선택자를 파라미터로 받아서 요소 노드를 탐색할 수 있다.</h3>
+    <div class="box-1">
+        <p class="text">문단-1</p>
+        <p class="text">문단-2</p>
+    </div>
+    <div class="box-2">
+        <p class="text">문단-3</p>
+        <p class="text">문단-4</p>
+    </div>
+    <script>
+        // 1. querySelector() 메소드와 css 선택자로 요소 노드 선택하기
+        // 반환 결과는 요소 노드 중 첫 번째 요소 노드 즉, 한 개의 요소 노드만 반환
+        const el1 = document.querySelector('.box-1'); // class 속성이 box-1인 요소 노드를 선택
+        console.log('el1 : ', el1);
+
+        // 1.1 class 속성이 box-2인 요소 노드의 자손 요소 노드 중 class 속성이 text인 첫 번째 요소 노드를 선택
+        const el2 = document.querySelector('.box-2 .text'); // 문단-3
+        console.log('el2 : ', el2);
+
+        // 2. querySelectorAll() 메소드와 css 선택자로 요소 노드 선택하기
+        // class 속성이 .box-1인 요소 노드의 자손 요소 노드 중 class 속성이 text인 요소 노드들을 선택
+        // NodeList 형태의 일종의 유사 배열 객체를 반환
+        const el3 = document.querySelectorAll('.box-1 .text');
+        console.log('el3 : ', el3); // NodeList(2) [p.text, p.text]
+        console.log('el3 : ', el3[0]); // NodeList 중에서 첫번째 노드
+        console.log('el3 : ', el3[1]); // NodeList 중에서 두번째 노드
+        console.log('el3 : ', el3[1].textContent); // 문단-2
+
+        // 3. querySelector() 메소드의 css 선택자로 요소 노드 선택하기
+        // class 속성이 box-1인 요소 노드의 자손 요소 노드 중 첫 번째 p 요소 노드의 텍스트 내용을 선택
+        const el4 = document.querySelector('.box-1 p').textContent; // 해당 요소 노드의 값을 바로 탐색
+        console.log('el4 : ', el4); // 문단-1
+
+        // 해당 요소 노드의 값을 바로 타마색
+        // p:nth-child(1) : nth-child()는 가상 클래스 선택자로, p 태그 중 첫 번째 자식 요소 노드를 선택
+        const el5 = document.querySelector('.box-1 p:nth-child(1)').textContent;
+        console.log('el5 : ', el5); // 문단 - 1
+
+        // box-1 클래스 속성을 가진 요소 노드의 자식 요소들 중에서 첫 번째 자식 요소 노드를 선택
+        const el6 = document.getElementsByClassName('box-1')[0].children;
+        console.log('el6 : ', el6); // HTMLCollection(2) [p.text, p.text]
+    </script>
+</body>
+
+</html>

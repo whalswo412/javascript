@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인라인 이벤트2</title>
+</head>
+
+<body>
+    <form>
+        <input type="text" onfocus="focusEvent()" onblur="blurEvent()"> <!-- 포커스, 블러 이벤트 발생 -->
+        <!-- <button>클릭</button> -->
+        <button>클릭2</button>
+    </form>
+
+    <p>문단-1</p>
+    <p>문단-2</p>
+    <p>문단-3</p>
+
+    <script>
+        // 1. 인라인 이벤트 핸들러 함수 방식
+        function focusEvent() {
+            console.log('포커스 이벤트 발생');
+        }
+        function blurEvent() {
+            console.log('포커스 아웃 이벤트 발생');
+        }
+
+        // 2. 프로퍼티 방식
+        // 버튼 노드 객체 찾아서 이벤트 핸들러 등록
+        const btnClick = document.querySelector('button'); // 버튼 노드 객체 찾기
+        // 이벤트 부착 방법 : [객체.이벤트 = 이벤트핸들러함수]
+        // btnClock 객체에 click 이벤트 핸들러 등록, onclick : 클릭 이벤트를 감지하는 이벤트 속성
+        btnClick.onclick = function (event) {
+            // preventDefault 적용
+            event.preventDefault();
+            console.log('클릭 이벤트 발생');
+        }
+        // 3. addEventListener() 메서드 방식
+        // DOM에서 제공하는 addEventListener() 메서드를 사용한 이벤트 핸들러 등록
+        const btnClick2 = document.querySelector('button');
+        // 더블클릭 이벤트 핸들러 등록
+        btnClick2.addEventListener('click', function (event) {
+            event.preventDefault(); // 버튼이 가지고 있는 기본 속성을 제거
+            console.log('클릭 이벤트 발생2');
+        });
+
+        const inputE = document.querySelector('input');
+        inputE.addEventListener('keydown', function (event) {
+            console.log(`keycod : ${event.keyCode}`);
+        });
+
+        // 이벤트 핸들러 함수 설정, pe 객체에 소속된 모든 p 태그에 이벤트 핸들러 등록
+        const pe = document.querySelectorAll('p');
+        pe.forEach(function (item) {
+            // 이벤트 핸들러 등록(이벤트 타입, 이벤트 핸들러 함수)
+            item.addEventListener('click', function (event) { // event : 이벤트 객체(이벤트 정보를 가지고 있는 객체)
+                console.log('클릭 이벤트 발생 this : ', this); // this : 이벤트가 발생한 객체
+            });
+        });
+
+    </script>
+</body>
+
+</html>
