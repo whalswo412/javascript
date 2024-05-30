@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>브라우저가 제공해주는 객체의 최고 조상 window</title>
+</head>
+<body>
+    <button onclick="printInfo()">window 객체 속성</button>
+    <script>
+        function printInfo(){
+            console.log(`window.innerWidth(너비) : ${window.innerWidth}`)
+            console.log(`window.innerHeight(너비) : ${window.innerHeight}`)
+            console.log(`window.outerWidth(웹브라우저 창 너비) : ${window.outerWidth}`)
+            console.log(`window.outerHeight(웹브라우저 창 높이) : ${window.outerHeight}`)
+        }
+    </script>
+</body>
+</html>

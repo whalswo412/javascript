@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소 노드 선택하기</title>
+</head>
+<body>
+    <h1 id="title">제목</h1>
+    <p class="text">문단-1</p>
+    <p class="text">문단-2</p>
+
+    <script>
+        // id 속성으로 요소 노드 선택하기
+        const el1 = document.getElementById('title'); // id속성이 title인 요소 노드를 선택
+        console.log('el1 : ', el1);
+        console.log('el1.textContent : ', el1.textContent); // 선택한 요소 노드의 텍스트 내용을 출력
+
+        // class 속성으로 요소 노드 선택하기
+        const el2 = document.getElementsByClassName('text'); // class속성이 text인 요소 노드를 선택
+        console.log('el2 : ', el2);
+        // 선택한 요소 노드 중 첫 번째 요소 노드의 텍스트 내용을 출력
+        console.log('el2[0].textContent : ', el2[0].textContent); 
+    </script>
+</body>
+</html>
