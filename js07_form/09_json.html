@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON 만국공통어</title>
+</head>
+<body>
+    <form id="loginForm">
+        <label for="username">사용자 이름</label>
+        <input type="text" name="userid" id="userid">
+
+        <label for="password">비밀번호</label>
+        <input type="password" name="password" id="password">
+        
+        <button type="submit">로그인</button>
+    </form>
+
+    <script>
+
+        /*
+            JSON - javascript Object Notation(자바스크립트 객체 표기법)
+            - JSON은 자바스크립트 객체 표기법으로, 데이터를 교환하는 포맷
+            - JSON은 텍스트로 이루어져 있으며, 프로그래밍 언어나 플랫폼에 독립적
+            - JSON은 자바스크립트 객체를 문자열로 변환하거나
+        */
+
+        // 폼 전송 이벤트 처리
+        // 폼 요소의 참조 가져오기
+        const loginForm = document.querySelector('#loginForm');
+        // 폼 요소에 이벤트 리스너 등록
+        loginForm.addEventListener('submit', function(event){
+            // 폼 전송 막기
+            event.preventDefault();
+            // 사용자 이름과 비밀번호 가져오기
+            const userid = document.querySelector('#userid').value;
+            const password = document.querySelector('#password').value;
+
+            // 객체 리터럴로 사용자 정보 생성(유저 객체 생성)
+            const user = {
+                userid: userid,
+                password: password
+            };
+
+            const jsonUser = JSON.stringify(user);
+            console.log(jsonUser);
+        });
+    </script>
+
+</body>
+</html>

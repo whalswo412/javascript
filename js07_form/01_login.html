@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgb(0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            margin-bottom: 10px;
+            padding: 5px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 1em;
+            background-color: #007bff; /* 배경색-파란색 */
+            color: #fff;    /* 글자색-흰색 */
+            border: none;   /* 테두리 없음 */
+            border-radius: 3px; /* 테두리 둥글게 */
+            cursor: pointer;    /* 마우스 커서 모영이 손모양으로 바뀜 */
+        }
+
+        button:hover {  /* 버튼에 마우스를 올렸을 때 */
+            background-color: #0056b3;  /* 배경색 진한 파란색 */
+        }
+
+        /* input type=submit */
+        input[type="submit"] {
+            padding: 10px;
+            font-size: 1em;
+            background-color: #007bff;  /* 배경색 파란색 */
+            color: #fff;    /* 글자색 흰색 */
+            border: none;   /* 테두리 없음 */
+            border-radius: 3px; /* 테두리 둥글게 */
+            cursor: pointer;    /* 마우스 커서 모양이 손 모양으로 바뀜 */
+        }
+
+        /* input type=submit hover */
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <form name="frm">
+        <label for="userid">ID</label>
+        <input type="text" 
+                id="userid" 
+                name="userid" 
+                placeholder="Enter your ID"
+                required>
+
+        <label for="password">Password</label>
+        <input type="text" 
+                id="password" 
+                name="password" 
+                placeholder="Enter your Password"
+                required>
+
+        <input type="submit" value="로그인">
+        <button type="submit">로그인</button>
+    </form>
+
+    <script>
+        // form 태그의 submit 이벤트가 발생하면 실행
+        const form = document.querySelector('form');
+        // 이벤트리스너 : 이벤트가 발생했을 때 실행할 함수를 등록
+        form.addEventListener('submit', function (e) { /* e 이벤트변수 : 이벤트에 대한 모든 정보 */
+            // form 태그의 submit 이벤트의 기본 동작을 막음
+            // submit, button 태그의 기본 동작은 form 태그의 값들을 서버로 전송하는 동작
+            e.preventDefault(); // submit(전송) 동작을 막음
+
+            // form 태그의 id와 password 값을 가져옴
+            let id = document.querySelector('#userid').value;
+            let password = document.querySelector('#password').value;
+
+            // id와 password가 비어있는지 확인
+            // trim() : 문자열의 앞뒤 공백을 제거
+            if (id.trim() === '' || password.trim() === '') { // id와 pw가 빈값이면
+                alert('ID와 Password를 입력해주세요.'); // 경고창을 띄움
+                return; // 함수 종료(exit), return 다음 코드는 실행되지 않음
+            }
+
+            // id와 password를 서버로 전송
+            alert('ID : ' + id + ', password : ' + password);
+
+            console.log('ID : ' + id + ' password : ' + password); // 콘솔창에 값출력(디버깅용)
+        });
+    </script>
+
+</body>
+
+</html>

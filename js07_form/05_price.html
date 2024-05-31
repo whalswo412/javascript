@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>피자 가격 계산</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <h1>피자 주문</h1>
+        <form>
+            <fieldset class="form-1">
+                <legend>사이즈</legend>
+                <p>Large - 24000 원</p>
+            </fieldset>
+            <fieldset class="form-2">
+                <legend>추가주문</legend>
+                <label for="pickle">
+                    <input type="checkbox" class="checkbox" name="pickle" id="pickle" value="1000">피클(1000원)
+                </label>
+                <label for="chilly">
+                    <input type="checkbox" class="checkbox" name="chilly" id="chilly" value="2000">칠리소스(2000원)
+                </label>
+                <label for="cheese">
+                    <input type="checkbox" class="checkbox" name="cheese" id="cheese" value="3000">치즈(3000원)
+                </label>
+                <label for="deeping">
+                    <input type="checkbox" class="checkbox" name="stick" id="deeping" value="4000">디핑(4000원)
+                </label>
+                <label for="soda">
+                    <input type="checkbox" class="checkbox" name="soda" id="soda" value="5000">soda(5000원)
+                </label>
+            </fieldset>
+            <fieldset class="form-3">
+                <legend>합계</legend>
+                <input type="text" name="total" id="total" class="price" value="0" readonly>
+                <p>결제금액 : <span id="price">0</span>원</p>
+                <button type="button" id="btnOrder">주문하기</button>
+            </fieldset>
+        </form>
+    </div>
+    
+    <script>
+        let price = 24000; // 피자 가격
+        let total = document.querySelector('#total'); // 합계
+        // class 속성이 checkbox인 요소들을 모두 가져옴
+        let sideMenu = document.querySelectorAll(".checkbox");
+        total.value = `${price}원`; // 초기 가격 표시
+
+        // 체크박스에 대한 이벤트 리스너 등록
+        sideMenu.forEach(function(item) {
+            // 체크 박스 하나당 이벤트 리스너 등록
+            item.addEventListener('click', function() {
+                if(this.checked) {
+                    price += parseInt(this.value);
+                } else {
+                    price -= parseInt(this.value);
+                }
+                total.value = `${price}원`;
+            });
+        });
+    </script>
+</body>
+
+</html>

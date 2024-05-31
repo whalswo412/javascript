@@ -1,0 +1,25 @@
+{
+    "members": [
+        {
+            "id": "user1",
+            "name": "홍길동",
+            "email": "a@a.com",
+            "phone": "010-1234-5678",
+            "age": 25
+        },
+        {
+            "id": "user2",
+            "name": "이영희",
+            "email": "a@a2.com",
+            "phone": "010-1234-5678",
+            "age": 30
+        },
+        {
+            "id": "user3",
+            "name": "김철수",
+            "email": "a@a3.com",
+            "phone": "010-5678-1234",
+            "age": 35
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콤보박스 select-option</title>
+</head>
+<body>
+    <form name="frm">
+        <label for="username">이름</label>
+        <input type="text" name="username" id="username">
+        <label for="fruit">과일</label>
+        <select name="fruit" id="fruit">
+            <option value="apple">사과</option>
+            <option value="banana">바나나</option>
+            <option value="orange">오렌지</option>
+            <option value="melon">멜론</option>
+        </select>
+        <button type="submit" id="btnSubmit">전송</button>
+    </form>
+
+    <script>
+        // 1. 콤보 박스 이벤트 처리
+        const fruit = document.querySelector('#fruit'); // 과일을 선택할 수 있는 콤보 박스 요소 선택
+        // 이벤트 리스너 등록(이벤트 타입 : change)
+        fruit.addEventListener('change', function(event) { // 과일 콤보 박스에서 값이 변경되면
+            event.preventDefault(); // 폼 전송 막기
+            // target : 이벤트가 발생한 요소, value : 선택된 과일의 value 값
+            const selectedFruit = event.target.value;
+            console.log('선택된 과일 : ', selectedFruit);
+        });
+
+        // 2. 폼 전송 이벤트 처리를 form 차원에서 하지 않고 버튼을 클릭했을 때 처리
+        // btnSubmit 버튼에 이벤트 리스너 등록
+        const btnSubmit = document.querySelector('#btnSubmit');
+        btnSubmit.addEventListener('click', function(event){
+            event.preventDefault(); // 폼 전송 막기
+            const username = document.querySelector('#username').value; // 사용자 이름 가져오기
+            const selectedFruit = document.querySelector('#fruit').value; // 선택된 과일 가져오기
+            // 선택된 과일의 value 값 가져오기            
+            console.log('이름 : ', username);
+            console.log('선택된 과일 : ', selectedFruit);
+            console.log('===============================');
+            const username1 = document.getElementById('username').value; // 사용자 이름 가죠ㅕ오기
+            const selectedFruit1 = document.getElementById('fruit').value; // 선택된 과일 가져오기
+            console.log('이름 : ', username);
+            console.log('선택된 과일 : ', selectedFruit1);
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>원의 둘레 구하기</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <h1>원의 둘레의 넓이 구하기</h1>
+        <form>
+            <div id="calculator">
+                <p>반지름 :</p>
+                <input type="text" id="radius" name="radius" class="radius">
+                <span id="calc">계산</span>
+                <hr>
+                <p>원의 둘레 :</p>
+                <input type="text" id="round" name="round" class="circle">
+                <br>
+                <p>원의 넓이 :</p>
+                <input type="text" id="area" name="area" class="circle">
+            </div>
+        </form>
+
+        <script>
+            let radius = document.querySelector('#radius'); // 반지름
+            let calc = document.querySelector('#calc'); // 계산 버튼
+            let area = document.querySelector('#area'); // 원의 넓이
+
+            // 계산 버튼에 이벤트 리스너 등록
+            calc.addEventListener('click', function () {
+                // 원의 둘레
+                document.querySelector('#round').value 
+                        = 2 * Math.PI * radius.value;   // 반지름 * 2 * 3.14
+                // 원의 넓이
+                document.querySelector('#area').value 
+                        = Math.PI * radius.value * radius.value;    // 원의 넓이 : 반지름 * 반지름 * 3.14
+            });
+        </script>
+    </div>
+</body>
+
+</html>

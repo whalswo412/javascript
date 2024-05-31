@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkbox</title>
+</head>
+
+<body>
+    <form name="frm">
+        <label><input type="checkbox" name="fruit" value="apple">사과</label>
+        <label><input type="checkbox" name="fruit" value="banana">바나나</label>
+        <label><input type="checkbox" name="fruit" value="orange">오렌지</label>
+        <label><input type="checkbox" name="fruit" value="melon">멜론</label>
+        <input type="submit" value="전송">
+        <!-- <button type="button">전송</button> -->
+    </form>
+
+    <script>
+        /* 체크박스 요소에서 체크된 체크박스들의 값을 추출 */
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const checked = form.querySelectorAll('input[type="checkbox"]:checked'); // checked된 checkbox만 가져옴
+            // checked된 checkbox의 value를 가져옴
+            // Array.form() 함수 : 유사 배열 객체나 반복 가능한 객체를 얕게 복사해 새로운 Array 객체를 만듬
+            // values 에는 체크된 체크박스의 value 값들이 담김
+            const values = Array.from(checked) // checked는 Nodelist로, 체크된 체크박스 요소들의 리스트
+                // map은 배열의 각 요소에 대해 함수를 실행하고 그 결과를 모아 새로운 배열을 반환
+                .map(function (item) { // item : 체크박스 요소
+                    return item.value;  // item.value : 체크박스의 value 값
+                }); // end of map
+            // values에 담긴 배열을 alert로 출력
+            alert(values);
+            console.log(values);
+            values.forEach(function (item) {
+                console.log(item);
+            });
+        });
+    </script>
+</body>
+
+</html>

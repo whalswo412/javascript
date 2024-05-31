@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON 읽어들이기</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" name="fileInput" id="fileInput">
+    <ul id="memberList">회원목록</ul>
+
+    <script>
+        const fileInput = document.querySelector('#fileInput');
+        const memberList = document.querySelector('#memberList');
+
+        fileInput.addEventListener('change', function(event){
+            const file = event.target.files[0]; // 파일 객체 가져오기
+            const reader = new FileReader(); // 파일을 읽어들이기 위한 FileReader 객체 생성
+
+            reader.onload = function(event){
+                const result = event.target.result; // 파일의 내용을 가져옴
+                const data = JSON.parse(result); // JSON 문자열을 자바스크립트 객체로 변환
+                const members = data.members; // members 배열 가져오기
+
+                memberList.innerHTML = '';
+
+                members.forEach(function(member){
+                    const li = document.createElement('li');
+                    li.textContent =  `아이디: ${member.id}, 이름: ${member.name}, 
+                                        이메일: ${member.email}, 전화번호: ${member.phone}, 나이: ${member.age}`;
+                    memberList.appendChild(li);
+                });
+            };
+
+            reader.readAsText(file); // 파일을 문자열 형태로 읽어들임
+        });
+    </script>
+</body>
+</html>
